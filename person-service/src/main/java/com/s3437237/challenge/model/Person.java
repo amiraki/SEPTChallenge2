@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
 @Entity
 @Table(name = "Persons")
@@ -22,7 +20,7 @@ public class Person {
     private String name;
     @Column (name = "Address")
     private String address;
-    @Column (name = "PostCode")
+    @Column (name = "Post_code")
     private String postcode;
     @Column (name = "Age")
     private String age;
@@ -30,8 +28,22 @@ public class Person {
     private String job;
     @Column (name = "Email")
     private String email;
-    @Column (name = "phoneNo")
+    @Column (name = "phone_no")
     private String phoneno;
+
+    public Person(Long id, String name, String address, String postcode, String age, String job, String email, String phoneno) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.postcode = postcode;
+        this.age = age;
+        this.job = job;
+        this.email = email;
+        this.phoneno = phoneno;
+    }
+
+    public Person() {}
 
     public Long getId() {
         return id;
@@ -95,5 +107,19 @@ public class Person {
 
     public void setPhoneno(String phoneno) {
         this.phoneno = phoneno;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", postcode='" + postcode + '\'' +
+                ", age='" + age + '\'' +
+                ", job='" + job + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneno='" + phoneno + '\'' +
+                '}';
     }
 }
