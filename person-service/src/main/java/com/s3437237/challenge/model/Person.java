@@ -22,7 +22,7 @@ public class Person {
     private String name;
     @Column (name = "Address")
     private String address;
-    @Column (name = "PostCode")
+    @Column (name = "Post_code")
     private String postcode;
     @Column (name = "Age")
     private String age;
@@ -30,7 +30,7 @@ public class Person {
     private String job;
     @Column (name = "Email")
     private String email;
-    @Column (name = "phoneNo")
+    @Column (name = "phone_no")
     private String phoneno;
 
     public Long getId() {
