@@ -27,7 +27,12 @@ public class PersonController {
         return "Welcome to Funds Management - project by John Brown [ s3437237 ]";
     }
 
-    // create a new person
+    /**
+     * Create new person
+     *
+     * @param person
+     * @return ResponseEntity
+     */
     @PostMapping("/person")
     public ResponseEntity<Person> newPerson(@RequestBody Person person) {
         Person newPerson = dao
@@ -44,7 +49,11 @@ public class PersonController {
         return new ResponseEntity<>(newPerson, HttpStatus.OK);
     }
 
-    // Get all persons
+    /**
+     * Get all persons
+     *
+     * @return ResponseEntity
+     */
     @GetMapping("/persons/person")
     public ResponseEntity<List<Person>> getPersons() {
         try {
@@ -54,7 +63,12 @@ public class PersonController {
         }
     }
 
-    // Get person by id
+    /**
+     * Get person by id
+     *
+     * @param id
+     * @return ResponseEntity
+     */
     @GetMapping("/item/person/{id}")
     public ResponseEntity<Person> getPersonById(@PathVariable("id") long id) {
         try {
@@ -73,7 +87,12 @@ public class PersonController {
 
     }
 
-    // Update person
+    /**
+     * Update person record by using it's id
+     *
+     * @param person
+     * @return
+     */
     @RequestMapping(value = "/persons/person", method = RequestMethod.PUT)
     public ResponseEntity<Person> updatePerson(@RequestBody Person person) {
 
@@ -91,7 +110,12 @@ public class PersonController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    // Delete person
+    /**
+     * Delete person by personId
+     *
+     * @param person
+     * @return ResponseEntity
+     */
     @RequestMapping(value = "/persons/person", method = RequestMethod.DELETE)
     public ResponseEntity<HttpStatus> deletePerson(@RequestBody Person person) {
         try {
@@ -110,6 +134,12 @@ public class PersonController {
         }
     }
 
+    /**
+     * Method to get the person record by id
+     *
+     * @param id
+     * @return Person
+     */
     private Person getPerson(long id) {
         Optional<Person> personObj = dao.findById(id);
 
