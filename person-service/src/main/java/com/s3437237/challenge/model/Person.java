@@ -15,7 +15,7 @@ public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long personId;
     @Column (name = "Name")
     private String name;
     @Column (name = "Address")
@@ -31,9 +31,9 @@ public class Person {
     @Column (name = "phone_no")
     private String phoneno;
 
-    public Person(Long id, String name, String address, String postcode, String age, String job, String email, String phoneno) {
+    public Person(Long personId, String name, String address, String postcode, String age, String job, String email, String phoneno) {
         super();
-        this.id = id;
+        this.personId = personId;
         this.name = name;
         this.address = address;
         this.postcode = postcode;
@@ -45,12 +45,12 @@ public class Person {
 
     public Person() {}
 
-    public Long getId() {
-        return id;
+    public Long getPersonId() {
+        return personId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPersonId(Long personId) {
+        this.personId = personId;
     }
 
     public String getName() {
@@ -112,7 +112,7 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "id=" + id +
+                "personId=" + personId +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", postcode='" + postcode + '\'' +
