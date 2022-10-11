@@ -14,7 +14,14 @@ import javax.persistence.*;
 public class Person {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(
+            name = "person_id_sequence",
+            sequenceName = "person_id_sequence"
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "person_id_sequence"
+    )
     private Long id;
     @Column (name = "Name")
     private String name;
