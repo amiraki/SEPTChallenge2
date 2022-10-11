@@ -32,7 +32,7 @@ public class PersonController {
     public ResponseEntity<Person> newPerson(@RequestBody Person person) {
         Person newPerson = dao
                 .save(Person.builder()
-                        .personId(person.getPersonId())
+                        .id(person.getId())
                         .name(person.getName())
                         .address(person.getAddress())
                         .postcode(person.getPostcode())
@@ -55,11 +55,11 @@ public class PersonController {
     }
 
     // Get person by id
-    @GetMapping("/item/person/{personId}")
-    public ResponseEntity<Person> getPersonById(@PathVariable("personId") long personId) {
+    @GetMapping("/item/person/{id}")
+    public ResponseEntity<Person> getPersonById(@PathVariable("id") long id) {
         try {
             //check if person exist in database
-            Person personObj = getPerson(personId);
+            Person personObj = getPerson(id);
 
             if (personObj != null) {
                 return new ResponseEntity<>(personObj, HttpStatus.OK);
@@ -110,8 +110,8 @@ public class PersonController {
         }
     }
 
-    private Person getPerson(long personId) {
-        Optional<Person> personObj = dao.findById(personId);
+    private Person getPerson(long id) {
+        Optional<Person> personObj = dao.findById(id);
 
         if (personObj.isPresent()) {
             return personObj.get();
